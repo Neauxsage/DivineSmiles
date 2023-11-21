@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel - Set Availability</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #f3e6e8, #f7fafc);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        #availability-calendar {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-template-rows: auto repeat(12, 1fr);
+            gap: 10px;
+            align-items: center;  /* Center content vertically */
+            justify-items: center; /* Center content horizontally */
+        }
+
+        .day-header {
+            font-weight: bold;
+            text-align: center;
+            padding: 5px 20px;
+            background-color: #eeeeee;
+            border-radius: 5px;
+        }
+
+       .day-slot {
+    width: 50%;  
+    padding: 8px;  /* Reduced padding to make buttons less tall */
+    margin: 1px 0;  /* Reduced margin to decrease whitespace between buttons */
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+	    user-select: none; /* This will prevent the text inside the box from being highlighted */
+
+}
+
+        /* Default pastel colors for each day column */
+        .day-slot[data-day="M"] { background-color: #FFDDDD; }
+        .day-slot[data-day="Tu"] { background-color: #FFEEBB; }
+        .day-slot[data-day="W"] { background-color: #FFFFCC; }
+        .day-slot[data-day="Th"] { background-color: #CCFFCC; }
+        .day-slot[data-day="F"] { background-color: #D4E2FE; }
+        .day-slot[data-day="S"] { background-color: #E3D6FE; }
+        .day-slot[data-day="Su"] { background-color: #FFCCDD; }
+
+
+/* Even darker colors for active state */
+.day-slot.active[data-day="M"] { background-color: #FFAAAA; }
+.day-slot.active[data-day="Tu"] { background-color: #F0BD8B; }
+.day-slot.active[data-day="W"] { background-color: #DEDE29; }
+.day-slot.active[data-day="Th"] { background-color: #4CCF4C; }
+.day-slot.active[data-day="F"] { background-color: #99BBFF; }
+.day-slot.active[data-day="S"] { background-color: #CC99FF; }
+.day-slot.active[data-day="Su"] { background-color: #FF99BB; }
+
+/* Hover effect */
+.day-slot:hover {
+    background-color: #e5e5e5;
+}
+
+        /* Submit button styles */
+        button#submit-availability {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onmouseup="endSelection()">
+    <h1>Admin Panel - Set Availability</h1>
+
+<div style="text-align: center; margin: 30px;">
+    <button type="button" id="submit-availability">Submit Availability</button>
+    <button type="button" id="clear-current-week">Clear Current Week</button>
+    <button type="button" id="clear-all-weeks">Clear All Weeks</button>
+</div>
+
+    <!-- Display Current Availability -->
+    <div id="current-availability-section" style="max-width: 800px; margin: 30px auto;">
+        <h2>Current Availability</h2>
+        <label for="availability-week">Select Week:</label>
+        <select id="availability-week" onchange="fetchAndDisplayAvailability()">
+            <!-- Weeks can be dynamically populated here if required -->
+            <option value="Week1">Week 1</option>
+            <option value="Week2">Week 2</option>
+            <!-- ... -->
+        </select>
+
+    </div>
+	
+    <div id="availability-calendar">
+        <!-- Dynamic generation of the calendar-like interface will be done via JS -->
+    </div>
+
+
+        <div id="current-availability" style="margin-top: 20px;">
+            <!-- Current availability will be displayed here -->
+        </div>
+
+
+    <script src="static/js/admin_interface.js"></script> <!-- JS file reference for admin panel -->
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add viewport meta tag -->
+    <title>Dental Whitening & Tooth Gems</title>
+    <style>
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.p {
+            color: #fff;
+
+}
+#container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+.content-section {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 0.5s ease;
+    background-size: cover;
+    background-position: center;
+    text-align: center; 
+    pointer-events: none; 
+
+}
+.content-section.active {
+    pointer-events: auto;
+}
+        #intro {
+            background-image: url('https://i.ibb.co/8DL7xgg/Picture8.png');
+            color: #FFD1F2;
+            opacity: 1;
+        }
+
+        #whitening {
+            background-image: url('https://i.ibb.co/gV1vfW2/Picture7.png');
+            color: #FFD1F2;
+            opacity: 0;
+        }
+
+        #gems {
+            background-image: url('https://i.ibb.co/3YJVjT9/Picture9.png');
+            color: #FFD1F2;
+            opacity: 0;
+        }
+
+        #whitening-expanded {
+            background-image: url('https://i.ibb.co/KDn2x0F/Picture1.png');
+            color: #FFD1F2;
+            opacity: 0;
+        }
+        
+                #gems-expanded {
+            background-image: url('https://i.ibb.co/SyrnDVD/Picture11.png');
+            color: #FFD1F2;
+            opacity: 0;
+        }
+        
+        .button {
+            padding: 20px 40px; /* Increased padding */
+            margin: 10px auto;
+            display: block;
+            background-color: #FFD1F2;
+            border: none;
+            cursor: pointer;
+            color: black;
+            font-weight: bold;
+            border-radius: 20px; /* Rounded corners */
+        }
+ h1 {
+            color: #FFE8F9;
+        }
+    /* Move buttons to the bottom */
+    .button-container {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+/* Navigation Bar */
+#navbar {
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Changed from space-around to center */
+    align-items: center;
+    background-color: transparent;
+    z-index: 1; /* Position navbar above content */
+}
+    #intro h1 {
+        font-size: 60px; /* You can adjust this value */
+    }
+
+    #whitening h1 {
+        font-size: 60px; /* You can adjust this value */
+    }
+
+    #gems h1 {
+        font-size: 60px; /* You can adjust this value */
+    }
+    
+    
+        .nav-button {
+            padding: 12px 24px;  /* Increased padding */
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+            margin: 0 2px;
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        .button:hover {
+                    background-color: #FFB6EC;
+
+    }
+        .nav-button:hover {
+            background-color: #FFE8F9;
+            border-radius: 4px;  /* Rounded corners */
+            text-decoration: none;  /* Remove underline */
+            color: black;  /* Change font color to black on hover */
+
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        .card {
+            width: 200px;
+            padding: 20px;
+            background-color: #FFE8F9;
+            border-radius: 20px;
+            margin: 10px; /* Margin around each card */
+            color: black; /* Text color */
+            transition: transform 0.3s ease; /* Hover effect */
+        }
+
+        /* Hover effect */
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card h2, .card p {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 18px;
+    }
+    .button {
+        padding: 8px 16px;
+    }
+    .content-section {
+        background-size: auto 100%;
+        background-position: center center;
+    }
+    #whitening {
+        background-position: calc(50% - 20px) center;
+        background-position: center calc(50% - 0px);
+    }
+    #whitening h1,
+    #whitening p,
+    #whitening .button {
+        margin-top: 10px;
+    }
+    .text-container {
+        position: absolute;
+        top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    .whitening-photo {
+        margin-left: 30px;
+    }
+       .card-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            width: 90%;
+            margin: 10px 0; /* Adjust margin */
+        }
+    }
+ 
+        h1 {
+            margin-bottom: 50px;
+        }
+        
+        p {
+            margin-top: 20px; 
+        }
+
+        .button {
+            margin-top: 20px; 
+        }
+    </style>
+</head>
+<body>
+
+<div id="navbar">
+    <button class="nav-button" onclick="navigateToSection(0)">Home</button>
+    <button class="nav-button" onclick="navigateToSection(1)">Whitening</button>
+    <button class="nav-button" onclick="navigateToSection(2)">Gems</button>
+        <button class="nav-button" onclick="navigateToSection(3)">Book!</button>
+</div>
+
+
+<div id="container">
+    <section id="intro" class="content-section">
+        <div class="content-wrapper"> <!-- Add this wrapper -->
+            <h1>Welcome to Divine Smiles</h1>
+            <p>Experience the Divine Difference in Dental Care.</p>
+            <button class="button" onclick="bookAppointment()">Book an Appointment</button>
+        </div>
+    </section>
+
+    <section id="whitening" class="content-section">
+        <div class="content-wrapper"> <!-- Add this wrapper -->
+            <h1>Dental Whitening</h1>
+            <p>Experience the best dental whitening.</p>
+            <button class="button" onclick="bookAppointment()">Book an Appointment</button>
+            <button class="button" onclick="learnMore('whitening')">Learn More</button>
+        </div>
+    </section>
+
+
+
+
+        <section id="gems" class="content-section">
+            <h1>Aesthetic Tooth Gems</h1>
+            <p>Add a sparkle to your smile.</p>
+            <button class="button" onclick="bookAppointment()">Book an Appointment</button>
+            <button class="button" onclick="learnMore('gems')">Learn More</button>
+        </section>
+        
+    <section id="whitening-expanded" class="content-section">
+        <h1>Dental Whitening Packages</h1>
+
+
+        <div class="card-container">
+            <div class="card">
+                <h2>Basic Package</h2>
+                <p>Price: $100</p>
+                <button class="button" onclick="bookAppointment()">Book Now</button>
+            </div>
+            
+            <div class="card">
+                <h2>Standard Package</h2>
+                <p>Price: $150</p>
+                <button class="button" onclick="bookAppointment()">Book Now</button>
+            </div>
+
+            <div class="card">
+                <h2>Premium Package</h2>
+                <p>Price: $200</p>
+                <button class="button" onclick="bookAppointment()">Book Now</button>
+            </div>
+        </div>
+
+        <button class="button" onclick="bookAppointment()">Book an Appointment</button>
+    </section>
+    <section id="gems-expanded" class="content-section">
+    <h1>Aesthetic Tooth Gems Packages</h1>
+    <div class="card-container">
+        <div class="card">
+            <h2>Basic Gem Package</h2>
+            <p>Price: $50</p>
+            <button class="button" onclick="bookAppointment()">Book Now</button>
+        </div>
+        
+        <div class="card">
+            <h2>Standard Gem Package</h2>
+            <p>Price: $80</p>
+            <button class="button" onclick="bookAppointment()">Book Now</button>
+        </div>
+
+        <div class="card">
+            <h2>Premium Gem Package</h2>
+            <p>Price: $100</p>
+            <button class="button" onclick="bookAppointment()">Book Now</button>
+        </div>
+    </div>
+    <button class="button" onclick="bookAppointment()">Book an Appointment</button>
+</section>
+    </div>
+
+
+</body>
+
+<script>
+let currentSection = 0;
+let lastTouchY = 0;
+let isLocked = false; 
+const sections = document.querySelectorAll('.content-section');
+
+window.addEventListener('wheel', handleWheelEvent);
+window.addEventListener('touchstart', handleTouchStart);
+window.addEventListener('touchmove', handleTouchMove);
+
+function handleWheelEvent(event) {
+    if (isLocked) return; // Exit if locked
+    isLocked = true; // Lock
+
+    if (event.deltaY > 0) {
+        // Scroll down
+        if (currentSection < sections.length - 1) {
+            currentSection++;
+        }
+    } else {
+        // Scroll up
+        if (currentSection > 0) {
+            currentSection--;
+        }
+    }
+    updateSections();
+    setTimeout(() => { isLocked = false; }, 500); // Unlock after 500ms
+}
+
+function handleTouchStart(event) {
+    lastTouchY = event.touches[0].clientY;
+}
+
+function navigateToSection(sectionIndex) {
+    if (sectionIndex >= 0 && sectionIndex < sections.length) {
+        currentSection = sectionIndex;
+        updateSections();
+    } else if (sectionIndex === 3) {  // Check if it's the "Book!" button
+        window.location.href = '/templates/user_interface.html';  // Navigate to user_interface.html in the whitening folder
+    }
+}
+
+
+
+function handleTouchMove(event) {
+    if (isLocked) return; // Exit if locked
+    isLocked = true; // Lock
+
+    const touchY = event.touches[0].clientY;
+    const deltaY = lastTouchY - touchY;
+
+    if (deltaY > 0) {
+        // Scroll down
+        if (currentSection < sections.length - 1) {
+            currentSection++;
+        }
+    } else {
+        // Scroll up
+        if (currentSection > 0) {
+            currentSection--;
+        }
+    }
+    lastTouchY = touchY;
+    updateSections();
+    setTimeout(() => { isLocked = false; }, 500); // Unlock after 500ms
+}
+
+function updateSections() {
+    sections.forEach((section, index) => {
+        if (index === currentSection) {
+            section.style.opacity = 1;
+            section.classList.add("active");  // Add active class
+        } else {
+            section.style.opacity = 0;
+            section.classList.remove("active");  // Remove active class
+        }
+    });
+}
+
+function bookAppointment() {
+    window.location.href = "/book"; // The URL path that serves the "user_interface.html"
+}
+
+
+function learnMore(service) {
+    if (service === 'whitening') {
+        navigateToSection(3);  
+    } else if (service === 'gems') {
+        navigateToSection(4);  
+    }
+}
+
+updateSections();
+
+
+    </script>
+    
+</html>
